@@ -27,7 +27,7 @@ while soup.find(id = 'firstHeading').get_text() != 'Philosophy':
             s.replace_with("")
         s = str(y[i])
         s = re.sub(r'\s+\((?:[^)(]+|\((?:[^)(]+|\([^)(]*\))*\))*\)', '', s) # remove parenthesized text
-        y[i] = BeautifulSoup(s, 'html') # re-convert to soup object
+        y[i] = BeautifulSoup(s, features = 'html.parser') # re-convert to soup object
 
 
     flag = True
