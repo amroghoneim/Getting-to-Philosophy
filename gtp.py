@@ -4,7 +4,10 @@ import re
 import time
 
 history = []
-link = input("url: ")
+while(True):
+    link = input("url: ")
+    if(link != ""):
+        break
 history.append(link)
 r = requests.get(link)
 time.sleep(0.5)
