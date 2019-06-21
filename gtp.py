@@ -3,17 +3,11 @@ from bs4 import BeautifulSoup
 import re
 import time
 
-def remove_text_between_parens(text):
-        n = 1  # run at least once
-        while n:
-            text, n = re.subn(r'\([<a^()]*\)', '', text)  # remove non-nested/flat balanced parts
-        return text
-
-
 history = []
 link = input("url: ")
 history.append(link)
 r = requests.get(link)
+time.sleep(0.5)
 soup = BeautifulSoup(r.content, features = 'html.parser')
 
 while soup.find(id = 'firstHeading').get_text() != 'Philosophy':
@@ -31,7 +25,6 @@ while soup.find(id = 'firstHeading').get_text() != 'Philosophy':
 
 
     flag = True
-    #flag2 = True
     for i in range (len(y)): # go to paragraph that has a wiki link
         if y[i].find(href = re.compile('/wiki/')) != None:
             content = y[i]
@@ -50,6 +43,6 @@ while soup.find(id = 'firstHeading').get_text() != 'Philosophy':
         break
     print(link)
     history.append(link)
-    time.sleep(0.5)
     r = requests.get(link)
+    time.sleep(0.5)
     soup = BeautifulSoup(r.content, features = 'html.parser')
