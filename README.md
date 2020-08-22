@@ -1,5 +1,5 @@
 # Getting-to-Philosophy
-simple implementation of getting to philosophy problem using python
+Implementation of getting to philosophy problem using python
 
 The user is required to enter the wikipedia link as an input to the program.
 
